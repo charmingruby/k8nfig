@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/charmingruby/podummy/config"
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
 
@@ -22,7 +23,14 @@ func main() {
 		slog.Error(fmt.Sprintf("CONFIGURATION: Failed to load configuration: %s", err.Error()))
 	}
 
-	slog.Info(fmt.Sprintf("App Name: %s", cfg.App.Name))
-	slog.Info(fmt.Sprintf("App Author: %s", cfg.App.Author))
-	slog.Info(fmt.Sprintf("App Version: %s", cfg.App.Version))
+	r := gin.Default()
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"app_name":    cfg.App.Name,
+			"app_author":  cfg.App.Author,
+			"app_version": cfg.App.Version,
+		})
+	})
+
+	r.Run(":8080")
 }
