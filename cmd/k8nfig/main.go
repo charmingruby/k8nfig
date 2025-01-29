@@ -24,5 +24,5 @@ func main() {
 
 	slog.Info(fmt.Sprintf("App Name: %s", cfg.App.Name))
 	slog.Info(fmt.Sprintf("App Author: %s", cfg.App.Author))
-	slog.Info(fmt.Sprintf("App Version: %s", cfg.App.Name))
+	slog.Info(fmt.Sprintf("App Version: %s", cfg.App.Version))
 }
