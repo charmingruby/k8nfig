@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8nfig
+data:
+  APP_NAME: "k8nfig"
+  APP_AUTHOR: "gustavo dias"
+  APP_VERSION: "0.3.0"
