@@ -19,7 +19,9 @@ spec:
             - name: http
               containerPort: 8080
           envFrom:
-            - configMapRef:
+            # - configMapRef:
+            #     name: k8nfig
+            - secretRef:
                 name: k8nfig
 ---
 apiVersion: v1
